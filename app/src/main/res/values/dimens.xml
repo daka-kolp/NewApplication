@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="elevation_space_8">8dp</dimen>
+    <dimen name="spacing_small_8">8dp</dimen>
+    <dimen name="width_reg_cardview">300dp</dimen>
+    <dimen name="height_reg_cardview">300dp</dimen>
+    <dimen name="margin_reg_edit_text_12">12dp</dimen>
+
+    <!--Text-->
+    <dimen name="text_medium_16sp">16sp</dimen>
+</resources>

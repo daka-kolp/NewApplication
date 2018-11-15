@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="items">
+        <item>Title1;Item1;Some description about item1;https://static.pexels.com/photos/39517/rose-flower-blossom-bloom-39517.jpeg</item>
+        <item>Title2;Item2;Some description about item2;https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg</item>
+        <item>Title3;Item3;Some description about item3;https://ae01.alicdn.com/kf/HTB1nKkyPVXXXXXcXXXXq6xXFXXX9/5d-diy-pintura-diamante-bonito-filhote-de-cachorro-flor-adesivos-de-parede-bordados-resina-diamante-redondo.jpg</item>
+    </string-array>
+
+</resources>
