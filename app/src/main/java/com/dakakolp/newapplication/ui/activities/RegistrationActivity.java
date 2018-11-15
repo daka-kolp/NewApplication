@@ -9,22 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.dakakolp.newapplication.NewApplicationApp;
 import com.dakakolp.newapplication.R;
-import com.dakakolp.newapplication.managers.DataManager;
 
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText mEditName, mEditPass, mEditPassRep;
     private Button mButtonSingUp;
     private CoordinatorLayout mSingUpCoordinatorLayout;
-    private DataManager mDataManager;
+    private NewApplicationApp mApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        mDataManager = DataManager.getInstance();
+        mApp = NewApplicationApp.getApplicationInstance();
 
         mSingUpCoordinatorLayout = findViewById(R.id.sign_up_coordinator_layout);
         mEditName = findViewById(R.id.username);
@@ -53,7 +53,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void saveSharedPref() {
-        mDataManager.getPreferenceManager().saveUserProfile(
+        mApp.getPreferenceManager().saveUserProfile(
                 mEditName.getText().toString(), mEditPass.getText().toString());
     }
 

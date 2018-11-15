@@ -3,6 +3,7 @@ package com.dakakolp.newapplication.managers;
 import android.content.SharedPreferences;
 
 import com.dakakolp.newapplication.NewApplicationApp;
+import com.dakakolp.newapplication.utils.ConstantManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.List;
 public class PrivateSharedPreferenceManager {
     private SharedPreferences mPrivateSharedPreferences;
 
-    public PrivateSharedPreferenceManager() {
-        mPrivateSharedPreferences = NewApplicationApp.getPrivateSharedPreferences();
+    public PrivateSharedPreferenceManager(SharedPreferences sharedPreferences) {
+        mPrivateSharedPreferences = sharedPreferences;
     }
 
     public void saveUserProfile(String username, String password) {

@@ -1,4 +1,4 @@
-package com.dakakolp.newapplication.adapters.adaptermodels;
+package com.dakakolp.newapplication.ui.adapters.models;
 
 import android.net.Uri;
 
@@ -7,14 +7,14 @@ import java.util.Objects;
 public class Item {
 
     private String mTitle;
-    private String mItem;
+    private String mSubtitle;
     private String mDescription;
     private Uri mImage;
 
     public Item(String str) {
         String[] arrArray = parseString(str);
         mTitle = arrArray[0];
-        mItem = arrArray[1];
+        mSubtitle = arrArray[1];
         mDescription = arrArray[2];
         mImage = Uri.parse(arrArray[3]);
     }
@@ -23,8 +23,8 @@ public class Item {
         return mTitle;
     }
 
-    public String getItem() {
-        return mItem;
+    public String getSubtitle() {
+        return mSubtitle;
     }
 
     public String getDescription() {
@@ -35,25 +35,25 @@ public class Item {
         return mImage;
     }
 
+    private String[] parseString(String str) {
+        String[] strArray = str.split(";");
+        return strArray;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
         return mTitle.equals(item.mTitle) &&
-                mItem.equals(item.mItem) &&
+                mSubtitle.equals(item.mSubtitle) &&
                 mDescription.equals(item.mDescription) &&
                 mImage.equals(item.mImage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mTitle, mItem, mDescription, mImage);
-    }
-
-    private String[] parseString(String str) {
-        String[] strArray = str.split(";");
-        return strArray;
+        return Objects.hash(mTitle, mSubtitle, mDescription, mImage);
     }
 }
 

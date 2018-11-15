@@ -1,4 +1,4 @@
-package com.dakakolp.newapplication.managers;
+package com.dakakolp.newapplication.utils;
 
 public interface ConstantManager {
     String PRIVATE_INFO_PREFERENCE = "private_info";

@@ -1,4 +1,4 @@
-package com.dakakolp.newapplication.adapters;
+package com.dakakolp.newapplication.ui.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dakakolp.newapplication.R;
-import com.dakakolp.newapplication.adapters.adaptermodels.Item;
+import com.dakakolp.newapplication.ui.adapters.models.Item;
 
 import java.util.List;
 
