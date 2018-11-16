@@ -1,6 +1,7 @@
 package com.dakakolp.newapplication.ui.adapters.models;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.Objects;
 
@@ -55,5 +56,6 @@ public class Item {
     public int hashCode() {
         return Objects.hash(mTitle, mSubtitle, mDescription, mImage);
     }
+
 }
 

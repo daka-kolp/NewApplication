@@ -10,14 +10,20 @@
 
     <style name="Launcher" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimaryDark">@android:color/transparent</item>
-        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <item name="android:windowBackground">@drawable/ll_main_logo</item>
     </style>
 
     <style name="edit_text_registration">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-
         <item name="android:layout_marginRight">@dimen/margin_reg_edit_text_12</item>
         <item name="android:layout_marginLeft">@dimen/margin_reg_edit_text_12</item>
     </style>
+
+    <style name="card_view_item_text_view">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
 </resources>

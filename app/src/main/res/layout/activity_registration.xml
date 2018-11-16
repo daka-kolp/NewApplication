@@ -24,7 +24,8 @@
             android:layout_width="@dimen/width_reg_cardview"
             android:layout_height="@dimen/height_reg_cardview"
             android:layout_gravity="center"
-            app:cardCornerRadius="@dimen/spacing_small_8"
+            android:elevation="@dimen/elevation_space_8"
+            app:cardCornerRadius="@dimen/card_corner_radius_8"
             app:cardElevation="@dimen/elevation_space_8">
 
             <LinearLayout

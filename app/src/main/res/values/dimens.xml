@@ -8,4 +8,10 @@
 
     <!--Text-->
     <dimen name="text_medium_16sp">16sp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="card_corner_radius_8">8dp</dimen>
+    <dimen name="image_size_144">144dp</dimen>
+    <dimen name="title_text_size_24sp">24sp</dimen>
+    <dimen name="subtitle_text_size_16sp">16sp</dimen>
 </resources>

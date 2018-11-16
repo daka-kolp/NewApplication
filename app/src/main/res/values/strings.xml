@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UnnamedApplication</string>
+    <string name="app_name">NewApplication</string>
     <string name="refresh_fields">Clear All?</string>
     <string name="please_create_your_account">Please, create your account</string>
     <string name="login">Login</string>
