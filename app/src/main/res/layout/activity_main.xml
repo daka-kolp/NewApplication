@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activities.MainActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/header"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/header" />
 
     <android.support.v7.widget.RecyclerView
-        android:layout_margin="@dimen/margin_16"
         android:id="@+id/recycler_view_items"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_16" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/float_exit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:elevation="@dimen/elevation_space_8"
+        android:src="@drawable/ic_clear_green_24dp" />
+
 </FrameLayout>

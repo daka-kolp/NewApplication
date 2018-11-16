@@ -1,15 +1,20 @@
 package com.dakakolp.newapplication.ui.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.dakakolp.newapplication.NewApplicationApp;
 import com.dakakolp.newapplication.R;
 import com.dakakolp.newapplication.ui.adapters.ItemAdapter;
 import com.dakakolp.newapplication.ui.adapters.models.Item;
+import com.dakakolp.newapplication.ui.fragments.DialogDeleteUserProfileFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +25,15 @@ public class MainActivity extends AppCompatActivity {
     private ItemAdapter mItemAdapter;
     private List<Item> mItemList;
 
+    private FloatingActionButton mFloatingExitActionButton;
+    private NewApplicationApp mApp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mApp = NewApplicationApp.getApplicationInstance();
 
         mItemList = getItemList();
 
@@ -44,6 +54,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mRecyclerViewItems.setAdapter(mItemAdapter);
+
+        mFloatingExitActionButton = findViewById(R.id.float_exit_button);
+
+        mFloatingExitActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogDeleteUserProfileFragment dialogFragment = new DialogDeleteUserProfileFragment();
+                dialogFragment.setListener(dialogDeleteUserProfileClickListener);
+                dialogFragment.show(getSupportFragmentManager(), null);
+
+            }
+        });
     }
 
     private List<Item> getItemList (){
@@ -54,4 +76,19 @@ public class MainActivity extends AppCompatActivity {
         }
         return items;
     }
+
+    private DialogDeleteUserProfileFragment.OnDialogExitClickListener dialogDeleteUserProfileClickListener =
+            new  DialogDeleteUserProfileFragment.OnDialogExitClickListener() {
+        @Override
+        public void onClickCancel() {
+        }
+
+        @Override
+        public void onClickDeleteUserProfile() {
+            mApp.getPrivatePreferenceManager().deleteUserData();
+            Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    };
 }

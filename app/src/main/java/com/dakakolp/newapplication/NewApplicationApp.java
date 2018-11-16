@@ -3,12 +3,12 @@ package com.dakakolp.newapplication;
 import android.app.Application;
 import android.content.Context;
 
-import com.dakakolp.newapplication.managers.SharedPreferenceManager;
+import com.dakakolp.newapplication.managers.PrivateSharedPreferenceManager;
 import com.dakakolp.newapplication.utils.ConstantManager;
 
 public class NewApplicationApp extends Application {
     private static NewApplicationApp sNewApplicationApp;
-    private SharedPreferenceManager mPrivatePreferencesManager;
+    private PrivateSharedPreferenceManager mPrivatePreferencesManager;
 
 
     @Override
@@ -20,7 +20,7 @@ public class NewApplicationApp extends Application {
 
     private void managersInitialization(){
         mPrivatePreferencesManager =
-                new SharedPreferenceManager(this, ConstantManager.PRIVATE_INFO_PREFERENCE, Context.MODE_PRIVATE);
+                new PrivateSharedPreferenceManager(this, ConstantManager.PRIVATE_INFO_PREFERENCE, Context.MODE_PRIVATE);
     }
 
 
@@ -28,7 +28,7 @@ public class NewApplicationApp extends Application {
         return sNewApplicationApp;
     }
 
-    public SharedPreferenceManager getPreferenceManager() {
+    public PrivateSharedPreferenceManager getPrivatePreferenceManager() {
         return mPrivatePreferencesManager;
     }
 

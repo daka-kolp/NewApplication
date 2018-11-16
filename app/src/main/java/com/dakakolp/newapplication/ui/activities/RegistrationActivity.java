@@ -53,7 +53,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void saveSharedPref() {
-        mApp.getPreferenceManager().saveUserProfile(
+        mApp.getPrivatePreferenceManager().saveUserData(
                 mEditName.getText().toString(), mEditPass.getText().toString());
     }
 
