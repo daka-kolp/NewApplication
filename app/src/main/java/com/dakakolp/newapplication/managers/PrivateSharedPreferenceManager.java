@@ -12,9 +12,9 @@ public class PrivateSharedPreferenceManager {
     private SharedPreferences mSharedPreferences;
     private String mFileNameSharedPreferences;
 
-    public PrivateSharedPreferenceManager(Context context, String fileName, int modePreference) {
+    public PrivateSharedPreferenceManager(Context context, String fileName) {
         mFileNameSharedPreferences = fileName;
-        mSharedPreferences = context.getSharedPreferences(mFileNameSharedPreferences, modePreference);
+        mSharedPreferences = context.getSharedPreferences(mFileNameSharedPreferences, Context.MODE_PRIVATE);
     }
 
     public void saveUserData(String username, String password) {

@@ -14,7 +14,8 @@ import com.dakakolp.newapplication.NewApplicationApp;
 import com.dakakolp.newapplication.R;
 import com.dakakolp.newapplication.ui.adapters.ItemAdapter;
 import com.dakakolp.newapplication.ui.adapters.models.Item;
-import com.dakakolp.newapplication.ui.fragments.DialogDeleteUserProfileFragment;
+import com.dakakolp.newapplication.ui.fragments.dialogs.DialogDeleteUserProfileFragment;
+import com.dakakolp.newapplication.utils.ConstantManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,14 @@ public class MainActivity extends AppCompatActivity {
         mItemAdapter = new ItemAdapter(mItemList, new ItemAdapter.CardViewListener() {
             @Override
             public void onClickCardView(int position) {
-
+                Intent intent = new Intent(MainActivity.this, DescriptionActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(ConstantManager.IMAGE_URI_EXTRA, mItemList.get(position).getImage().toString());
+                bundle.putString(ConstantManager.TITLE_EXTRA, mItemList.get(position).getTitle());
+                bundle.putString(ConstantManager.SUBTITLE_EXTRA, mItemList.get(position).getSubtitle());
+                bundle.putString(ConstantManager.DESCRIPTION_EXTRA, mItemList.get(position).getDescription());
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

@@ -39,9 +39,7 @@
 
                 <TextView
                     android:id="@+id/subtitle_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
+                    style="@style/card_view_item_text_view"
                     android:textSize="@dimen/subtitle_text_size_16sp" />
 
             </LinearLayout>

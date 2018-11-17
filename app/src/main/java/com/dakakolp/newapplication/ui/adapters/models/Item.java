@@ -3,9 +3,10 @@ package com.dakakolp.newapplication.ui.adapters.models;
 import android.net.Uri;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Item {
+public class Item implements Serializable {
 
     private String mTitle;
     private String mSubtitle;
@@ -18,6 +19,13 @@ public class Item {
         mSubtitle = arrArray[1];
         mDescription = arrArray[2];
         mImage = Uri.parse(arrArray[3]);
+    }
+
+    public Item(Uri image, String title, String subtitle, String description) {
+        mTitle = title;
+        mSubtitle = subtitle;
+        mDescription = description;
+        mImage = image;
     }
 
     public String getTitle() {

@@ -20,7 +20,7 @@ public class NewApplicationApp extends Application {
 
     private void managersInitialization(){
         mPrivatePreferencesManager =
-                new PrivateSharedPreferenceManager(this, ConstantManager.PRIVATE_INFO_PREFERENCE, Context.MODE_PRIVATE);
+                new PrivateSharedPreferenceManager(this, ConstantManager.PRIVATE_INFO_PREFERENCE);
     }
 
 
