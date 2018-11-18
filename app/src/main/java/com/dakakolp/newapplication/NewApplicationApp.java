@@ -1,9 +1,8 @@
 package com.dakakolp.newapplication;
 
 import android.app.Application;
-import android.content.Context;
 
-import com.dakakolp.newapplication.managers.PrivateSharedPreferenceManager;
+import com.dakakolp.newapplication.data.managers.PrivateSharedPreferenceManager;
 import com.dakakolp.newapplication.utils.ConstantManager;
 
 public class NewApplicationApp extends Application {

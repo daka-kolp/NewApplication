@@ -20,8 +20,7 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //проверка зарегистировался ли пользователь ранее
-        boolean isNotRegistered = (mApp.getPrivatePreferenceManager().loadUserData().get(0) == null)
-                && (mApp.getPrivatePreferenceManager().loadUserData().get(1) == null);
+        boolean isNotRegistered = mApp.getPrivatePreferenceManager().loadUserData() == null;
         Intent intent;
         if (isNotRegistered) {
             intent = new Intent(this, RegistrationActivity.class);

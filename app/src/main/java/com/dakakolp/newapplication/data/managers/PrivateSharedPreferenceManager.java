@@ -1,9 +1,11 @@
-package com.dakakolp.newapplication.managers;
+package com.dakakolp.newapplication.data.managers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.dakakolp.newapplication.data.classes.User;
 import com.dakakolp.newapplication.utils.ConstantManager;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,23 +20,27 @@ public class PrivateSharedPreferenceManager {
     }
 
     public void saveUserData(String username, String password) {
+        User user = new User(username, password);
+        Gson gson = new Gson();
+        String strUser = gson.toJson(user);
+
         SharedPreferences.Editor editor = mSharedPreferences.edit();
-        editor.putString(ConstantManager.USER_NAME, username);
-        editor.putString(ConstantManager.USER_PASSWORD, password);
+        editor.putString(ConstantManager.USER, strUser);
         editor.apply();
     }
 
-    public List<String> loadUserData() {
-        List<String> usersData = new ArrayList<>();
-        usersData.add(mSharedPreferences.getString(ConstantManager.USER_NAME, null));
-        usersData.add(mSharedPreferences.getString(ConstantManager.USER_PASSWORD, null));
-        return usersData;
+    public User loadUserData() {
+        String strUser = mSharedPreferences.getString(ConstantManager.USER, null);
+
+        Gson gson = new Gson();
+        User user = gson.fromJson(strUser, User.class);
+        return user;
     }
 
     public void deleteUserData() {
         mSharedPreferences
                 .edit()
-                .clear()
+                .remove(ConstantManager.USER)
                 .apply();
     }
 }

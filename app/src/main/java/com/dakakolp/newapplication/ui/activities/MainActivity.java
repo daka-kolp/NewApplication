@@ -20,7 +20,7 @@ import com.dakakolp.newapplication.utils.ConstantManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DialogDeleteUserProfileFragment.OnDialogExitClickListener {
 
     private RecyclerView mRecyclerViewItems;
     private ItemAdapter mItemAdapter;
@@ -69,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DialogDeleteUserProfileFragment dialogFragment = new DialogDeleteUserProfileFragment();
-                dialogFragment.setListener(dialogDeleteUserProfileClickListener);
+                dialogFragment.setListener(MainActivity.this);
                 dialogFragment.show(getSupportFragmentManager(), null);
 
             }
         });
     }
 
-    private List<Item> getItemList (){
+    private List<Item> getItemList() {
         List<Item> items = new ArrayList<>();
         String[] arrayStr = getResources().getStringArray(R.array.items);
         for (String str : arrayStr) {
@@ -85,18 +85,16 @@ public class MainActivity extends AppCompatActivity {
         return items;
     }
 
-    private DialogDeleteUserProfileFragment.OnDialogExitClickListener dialogDeleteUserProfileClickListener =
-            new  DialogDeleteUserProfileFragment.OnDialogExitClickListener() {
-        @Override
-        public void onClickCancel() {
-        }
+    @Override
+    public void onClickCancel() {
+    }
 
-        @Override
-        public void onClickDeleteUserProfile() {
-            mApp.getPrivatePreferenceManager().deleteUserData();
-            Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    };
+    @Override
+    public void onClickDeleteUserProfile() {
+        mApp.getPrivatePreferenceManager().deleteUserData();
+        Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
