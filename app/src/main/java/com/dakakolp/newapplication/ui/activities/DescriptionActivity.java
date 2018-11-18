@@ -28,7 +28,9 @@ public class DescriptionActivity extends BaseActivity {
     private void getIntentFromMainActivity(Intent intent) {
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
-            String image = bundle.getString(ConstantManager.IMAGE_URI_EXTRA);
+
+            Item item = bundle.getParcelable(ConstantManager.USER);
+/*            String image = bundle.getString(ConstantManager.IMAGE_URI_EXTRA);
             String title = bundle.getString(ConstantManager.TITLE_EXTRA);
             String subtitle = bundle.getString(ConstantManager.SUBTITLE_EXTRA);
             String description = bundle.getString(ConstantManager.DESCRIPTION_EXTRA);
@@ -37,7 +39,7 @@ public class DescriptionActivity extends BaseActivity {
                     title,
                     subtitle,
                     description
-            );
+            );*/
             startFragment(item);
         }
     }

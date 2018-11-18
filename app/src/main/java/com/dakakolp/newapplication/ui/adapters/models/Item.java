@@ -1,12 +1,14 @@
 package com.dakakolp.newapplication.ui.adapters.models;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Item implements Serializable {
+public class Item implements Parcelable {
 
     private String mTitle;
     private String mSubtitle;
@@ -65,5 +67,37 @@ public class Item implements Serializable {
         return Objects.hash(mTitle, mSubtitle, mDescription, mImage);
     }
 
+
+    protected Item(Parcel in) {
+        mTitle = in.readString();
+        mSubtitle = in.readString();
+        mDescription = in.readString();
+        mImage = in.readParcelable(Uri.class.getClassLoader());
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mTitle);
+        dest.writeString(mSubtitle);
+        dest.writeString(mDescription);
+        dest.writeParcelable(mImage, flags);
+    }
 }
 

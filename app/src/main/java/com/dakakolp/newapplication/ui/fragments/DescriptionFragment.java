@@ -30,7 +30,7 @@ public class DescriptionFragment extends Fragment {
     public static DescriptionFragment newInstance(Item item) {
         DescriptionFragment fragment = new DescriptionFragment();
         Bundle args = new Bundle();
-        args.putSerializable(ConstantManager.ITEM_ARG, item);
+        args.putParcelable(ConstantManager.ITEM_ARG, item);
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,7 +39,7 @@ public class DescriptionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mItem = (Item) getArguments().getSerializable(ConstantManager.ITEM_ARG);
+            mItem = (Item) getArguments().getParcelable(ConstantManager.ITEM_ARG);
         }
     }
 
