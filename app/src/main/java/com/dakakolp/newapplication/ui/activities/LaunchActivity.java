@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.dakakolp.newapplication.NewApplicationApp;
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends BaseActivity {
 
     private NewApplicationApp mApp;
 

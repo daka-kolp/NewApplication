@@ -3,7 +3,6 @@ package com.dakakolp.newapplication.ui.activities;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,7 +19,7 @@ import com.dakakolp.newapplication.utils.ConstantManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DialogDeleteUserProfileFragment.OnDialogExitClickListener {
+public class MainActivity extends BaseActivity implements DialogDeleteUserProfileFragment.OnDialogExitClickListener {
 
     private RecyclerView mRecyclerViewItems;
     private ItemAdapter mItemAdapter;
@@ -36,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements DialogDeleteUserP
 
         mApp = NewApplicationApp.getApplicationInstance();
 
+        initRecyclerView();
+        initFloatActionButton();
+    }
+
+    private void initRecyclerView() {
         mItemList = getItemList();
 
         mRecyclerViewItems = findViewById(R.id.recycler_view_items);
@@ -60,9 +64,10 @@ public class MainActivity extends AppCompatActivity implements DialogDeleteUserP
                 startActivity(intent);
             }
         });
-
         mRecyclerViewItems.setAdapter(mItemAdapter);
+    }
 
+    private void initFloatActionButton() {
         mFloatingExitActionButton = findViewById(R.id.float_exit_button);
 
         mFloatingExitActionButton.setOnClickListener(new View.OnClickListener() {

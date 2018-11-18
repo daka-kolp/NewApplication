@@ -3,8 +3,8 @@ package com.dakakolp.newapplication.ui.activities;
 import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +12,7 @@ import android.widget.EditText;
 import com.dakakolp.newapplication.NewApplicationApp;
 import com.dakakolp.newapplication.R;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends BaseActivity {
 
     private EditText mEditName, mEditPass, mEditPassRep;
     private Button mButtonSingUp;
@@ -26,14 +26,21 @@ public class RegistrationActivity extends AppCompatActivity {
 
         mApp = NewApplicationApp.getApplicationInstance();
 
+        initViews();
+    }
+
+    private void initViews() {
         mSingUpCoordinatorLayout = findViewById(R.id.sign_up_coordinator_layout);
         mEditName = findViewById(R.id.username);
         mEditPass = findViewById(R.id.password);
         mEditPassRep = findViewById(R.id.password_repeat);
-
         mButtonSingUp = findViewById(R.id.sing_up);
 
-        mButtonSingUp.setOnClickListener(new View.OnClickListener() {
+        setSingUpListener(mButtonSingUp);
+    }
+
+    private void setSingUpListener(Button buttonSingUp) {
+        buttonSingUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkData()) {
@@ -42,9 +49,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    boolean buttonRefresh = !mEditName.getText().toString().equals("") ||
-                            !mEditPass.getText().toString().equals("") ||
-                            !mEditPassRep.getText().toString().equals("");
+                    boolean buttonRefresh = TextUtils.isEmpty(mEditName.getText().toString()) ||
+                            TextUtils.isEmpty(mEditPass.getText().toString()) ||
+                            TextUtils.isEmpty(mEditPassRep.getText().toString());
                     showShackBarError(R.string.wrong_data, buttonRefresh);
                 }
 
@@ -59,8 +66,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private boolean checkData() {
         return mEditPass.getText().toString().equals(mEditPassRep.getText().toString()) &&
-                !mEditName.getText().toString().equals("") &&
-                !mEditPass.getText().toString().equals("");
+                TextUtils.isEmpty(mEditName.getText().toString()) &&
+                TextUtils.isEmpty(mEditPass.getText().toString());
     }
 
     private void showShackBarError(int message, boolean modeRefresh) {

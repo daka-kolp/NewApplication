@@ -12,7 +12,7 @@ import com.dakakolp.newapplication.ui.adapters.models.Item;
 import com.dakakolp.newapplication.ui.fragments.DescriptionFragment;
 import com.dakakolp.newapplication.utils.ConstantManager;
 
-public class DescriptionActivity extends AppCompatActivity {
+public class DescriptionActivity extends BaseActivity {
 
     private DescriptionFragment mDescriptionFragment;
 
@@ -20,8 +20,12 @@ public class DescriptionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
-
         Intent intent = getIntent();
+        getIntentFromMainActivity(intent);
+
+    }
+
+    private void getIntentFromMainActivity(Intent intent) {
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
             String image = bundle.getString(ConstantManager.IMAGE_URI_EXTRA);
@@ -34,15 +38,18 @@ public class DescriptionActivity extends AppCompatActivity {
                     subtitle,
                     description
             );
-            mDescriptionFragment = DescriptionFragment.newInstance(item);
-
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.desc_fragment_container, mDescriptionFragment)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .commit();
-
+            startFragment(item);
         }
+    }
+
+    private void startFragment(Item item) {
+        mDescriptionFragment = DescriptionFragment.newInstance(item);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.desc_fragment_container, mDescriptionFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit();
     }
 
 }

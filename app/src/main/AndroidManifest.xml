@@ -16,6 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.activities.LaunchActivity"
+            android:noHistory="true"
             android:theme="@style/Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
