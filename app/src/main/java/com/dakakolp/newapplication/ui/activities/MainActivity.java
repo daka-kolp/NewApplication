@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.dakakolp.newapplication.NewApplicationApp;
@@ -29,6 +28,7 @@ public class MainActivity extends BaseActivity implements DialogDeleteUserProfil
     private FloatingActionButton mFloatingExitActionButton;
     private NewApplicationApp mApp;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,8 @@ public class MainActivity extends BaseActivity implements DialogDeleteUserProfil
         initRecyclerView();
         initFloatActionButton();
     }
+
+
 
     private void initRecyclerView() {
         mItemList = getItemList();
@@ -63,20 +65,6 @@ public class MainActivity extends BaseActivity implements DialogDeleteUserProfil
         mRecyclerViewItems.setAdapter(mItemAdapter);
     }
 
-    private void initFloatActionButton() {
-        mFloatingExitActionButton = findViewById(R.id.float_exit_button);
-
-        mFloatingExitActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogDeleteUserProfileFragment dialogFragment = new DialogDeleteUserProfileFragment();
-                dialogFragment.setListener(MainActivity.this);
-                dialogFragment.show(getSupportFragmentManager(), null);
-
-            }
-        });
-    }
-
     private List<Item> getItemList() {
         List<Item> items = new ArrayList<>();
         String[] arrayStr = getResources().getStringArray(R.array.items);
@@ -85,6 +73,23 @@ public class MainActivity extends BaseActivity implements DialogDeleteUserProfil
         }
         return items;
     }
+
+    private void initFloatActionButton() {
+        mFloatingExitActionButton = findViewById(R.id.float_exit_button);
+
+        mFloatingExitActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog() {
+        DialogDeleteUserProfileFragment dialogFragment = DialogDeleteUserProfileFragment.newInstance();
+        dialogFragment.show(getSupportFragmentManager(), null);
+    }
+
 
     @Override
     public void onClickCancel() {

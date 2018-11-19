@@ -4,7 +4,6 @@ public interface ConstantManager {
 
     //=====SharedPreference======
     String PRIVATE_INFO_PREFERENCE = "private_info";
-
     String USER = "user_name";
 
     //=====DescriptionFragment=====

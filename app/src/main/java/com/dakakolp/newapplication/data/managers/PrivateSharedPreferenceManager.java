@@ -26,7 +26,7 @@ public class PrivateSharedPreferenceManager {
 
     public User loadUserData() {
         String strUser = mSharedPreferences.getString(ConstantManager.USER, null);
-
+        if (strUser == null) return null;
         Gson gson = new Gson();
         return gson.fromJson(strUser, User.class);
     }

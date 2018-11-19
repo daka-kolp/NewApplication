@@ -66,8 +66,8 @@ public class RegistrationActivity extends BaseActivity {
 
     private boolean checkData() {
         return mEditPass.getText().toString().equals(mEditPassRep.getText().toString()) &&
-                TextUtils.isEmpty(mEditName.getText().toString()) &&
-                TextUtils.isEmpty(mEditPass.getText().toString());
+                !TextUtils.isEmpty(mEditName.getText().toString()) &&
+                !TextUtils.isEmpty(mEditPass.getText().toString());
     }
 
     private void showShackBarError(int message, boolean modeRefresh) {
