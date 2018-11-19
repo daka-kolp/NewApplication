@@ -1,8 +1,7 @@
 package com.dakakolp.newapplication.ui.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,12 +38,12 @@ public class DescriptionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mItem = (Item) getArguments().getParcelable(ConstantManager.ITEM_ARG);
+            mItem = getArguments().getParcelable(ConstantManager.ITEM_ARG);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_description, container, false);
 
@@ -65,12 +64,8 @@ public class DescriptionFragment extends Fragment {
         mDescription.setText(item.getDescription());
     }
 
-
     @Override
     public void onDetach() {
         super.onDetach();
-
     }
-
-
 }

@@ -7,16 +7,11 @@ import com.dakakolp.newapplication.data.classes.User;
 import com.dakakolp.newapplication.utils.ConstantManager;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PrivateSharedPreferenceManager {
     private SharedPreferences mSharedPreferences;
-    private String mFileNameSharedPreferences;
 
     public PrivateSharedPreferenceManager(Context context, String fileName) {
-        mFileNameSharedPreferences = fileName;
-        mSharedPreferences = context.getSharedPreferences(mFileNameSharedPreferences, Context.MODE_PRIVATE);
+        mSharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
     }
 
     public void saveUserData(String username, String password) {
@@ -33,8 +28,7 @@ public class PrivateSharedPreferenceManager {
         String strUser = mSharedPreferences.getString(ConstantManager.USER, null);
 
         Gson gson = new Gson();
-        User user = gson.fromJson(strUser, User.class);
-        return user;
+        return gson.fromJson(strUser, User.class);
     }
 
     public void deleteUserData() {

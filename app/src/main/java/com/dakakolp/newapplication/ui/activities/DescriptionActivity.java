@@ -1,11 +1,8 @@
 package com.dakakolp.newapplication.ui.activities;
 
-import android.app.FragmentManager;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 
 import com.dakakolp.newapplication.R;
 import com.dakakolp.newapplication.ui.adapters.models.Item;
@@ -26,27 +23,12 @@ public class DescriptionActivity extends BaseActivity {
     }
 
     private void getIntentFromMainActivity(Intent intent) {
-        Bundle bundle = intent.getExtras();
-        if (bundle != null) {
-
-            Item item = bundle.getParcelable(ConstantManager.USER);
-/*            String image = bundle.getString(ConstantManager.IMAGE_URI_EXTRA);
-            String title = bundle.getString(ConstantManager.TITLE_EXTRA);
-            String subtitle = bundle.getString(ConstantManager.SUBTITLE_EXTRA);
-            String description = bundle.getString(ConstantManager.DESCRIPTION_EXTRA);
-            Item item = new Item(
-                    Uri.parse(image),
-                    title,
-                    subtitle,
-                    description
-            );*/
-            startFragment(item);
-        }
+        Item item = intent.getParcelableExtra(ConstantManager.ITEM_EXTRA);
+        startFragment(item);
     }
 
     private void startFragment(Item item) {
         mDescriptionFragment = DescriptionFragment.newInstance(item);
-
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.desc_fragment_container, mDescriptionFragment)

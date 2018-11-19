@@ -12,8 +12,7 @@ public interface ConstantManager {
 
     //=====IntentExtra=====
     String ITEM_EXTRA = "extra item";
-    String TITLE_EXTRA = "extra title";
-    String SUBTITLE_EXTRA = "extra subtitle";
-    String DESCRIPTION_EXTRA = "extra description";
-    String IMAGE_URI_EXTRA = "extra image";
+
+    //=====Logcat=====
+    String TAG = "LOGCAT";
 }

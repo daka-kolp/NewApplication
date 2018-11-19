@@ -1,6 +1,5 @@
 package com.dakakolp.newapplication.ui.adapters;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -54,13 +53,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return mItemList.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder{
+    class ItemViewHolder extends RecyclerView.ViewHolder{
         private CardView mCardView;
         private ImageView mImageItem;
         private TextView mTitle;
         private TextView mSubtitle;
 
-        public ItemViewHolder(View itemView) {
+        ItemViewHolder(View itemView) {
             super(itemView);
             mCardView = itemView.findViewById(R.id.card_view_item);
             mImageItem = itemView.findViewById(R.id.image_item);

@@ -3,9 +3,7 @@ package com.dakakolp.newapplication.ui.adapters.models;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 public class Item implements Parcelable {
@@ -21,13 +19,6 @@ public class Item implements Parcelable {
         mSubtitle = arrArray[1];
         mDescription = arrArray[2];
         mImage = Uri.parse(arrArray[3]);
-    }
-
-    public Item(Uri image, String title, String subtitle, String description) {
-        mTitle = title;
-        mSubtitle = subtitle;
-        mDescription = description;
-        mImage = image;
     }
 
     public String getTitle() {
@@ -47,8 +38,7 @@ public class Item implements Parcelable {
     }
 
     private String[] parseString(String str) {
-        String[] strArray = str.split(";");
-        return strArray;
+        return str.split(";");
     }
 
     @Override
@@ -68,7 +58,7 @@ public class Item implements Parcelable {
     }
 
 
-    protected Item(Parcel in) {
+    private Item(Parcel in) {
         mTitle = in.readString();
         mSubtitle = in.readString();
         mDescription = in.readString();

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.dakakolp.newapplication.NewApplicationApp;
@@ -55,13 +56,7 @@ public class MainActivity extends BaseActivity implements DialogDeleteUserProfil
             @Override
             public void onClickCardView(int position) {
                 Intent intent = new Intent(MainActivity.this, DescriptionActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(ConstantManager.ITEM_EXTRA, mItemList.get(position));
-                /*bundle.putString(ConstantManager.IMAGE_URI_EXTRA, mItemList.get(position).getImage().toString());
-                bundle.putString(ConstantManager.TITLE_EXTRA, mItemList.get(position).getTitle());
-                bundle.putString(ConstantManager.SUBTITLE_EXTRA, mItemList.get(position).getSubtitle());
-                bundle.putString(ConstantManager.DESCRIPTION_EXTRA, mItemList.get(position).getDescription());*/
-                intent.putExtras(bundle);
+                intent.putExtra(ConstantManager.ITEM_EXTRA, mItemList.get(position));
                 startActivity(intent);
             }
         });
