@@ -19,7 +19,6 @@ public class LaunchActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //проверка зарегистировался ли пользователь ранее
         boolean isNotRegistered = mApp.getPrivatePreferenceManager().loadUserData() == null;
         Intent intent;
         if (isNotRegistered) {

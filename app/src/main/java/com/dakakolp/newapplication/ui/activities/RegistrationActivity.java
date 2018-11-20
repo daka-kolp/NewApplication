@@ -52,7 +52,7 @@ public class RegistrationActivity extends BaseActivity {
                     boolean buttonRefresh = TextUtils.isEmpty(mEditName.getText().toString()) ||
                             TextUtils.isEmpty(mEditPass.getText().toString()) ||
                             TextUtils.isEmpty(mEditPassRep.getText().toString());
-                    showShackBarError(R.string.wrong_data, buttonRefresh);
+                    showShackBarError(buttonRefresh);
                 }
 
             }
@@ -70,8 +70,8 @@ public class RegistrationActivity extends BaseActivity {
                 !TextUtils.isEmpty(mEditPass.getText().toString());
     }
 
-    private void showShackBarError(int message, boolean modeRefresh) {
-        Snackbar snackbar = Snackbar.make(mSingUpCoordinatorLayout, message, Snackbar.LENGTH_LONG);
+    private void showShackBarError(boolean modeRefresh) {
+        Snackbar snackbar = Snackbar.make(mSingUpCoordinatorLayout, R.string.wrong_data, Snackbar.LENGTH_LONG);
         if (modeRefresh) {
             snackbar.setAction(R.string.refresh_fields, new View.OnClickListener() {
                 @Override

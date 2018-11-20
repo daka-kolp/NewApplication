@@ -1,28 +1,28 @@
 package com.dakakolp.newapplication.data.classes;
 
 public class User {
-    private String username;
-    private String password;
+    private String mUsername;
+    private String mPassword;
 
     public User(String username, String password) {
 
-        this.username = username;
-        this.password = password;
+        this.mUsername = username;
+        this.mPassword = password;
     }
 
     public String getUsername() {
-        return username;
+        return mUsername;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.mUsername = username;
     }
 
     public String getPassword() {
-        return password;
+        return mPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.mPassword = password;
     }
 }

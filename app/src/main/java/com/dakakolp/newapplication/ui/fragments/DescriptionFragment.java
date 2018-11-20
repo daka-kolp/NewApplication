@@ -58,6 +58,7 @@ public class DescriptionFragment extends Fragment {
     }
 
     private void setData(Item item) {
+        if(item == null) return;
         Picasso.get().load(item.getImage()).into(mImage);
         mTitle.setText(item.getTitle());
         mSubtitle.setText(item.getSubtitle());

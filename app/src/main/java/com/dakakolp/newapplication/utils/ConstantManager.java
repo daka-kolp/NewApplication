@@ -7,10 +7,10 @@ public interface ConstantManager {
     String USER = "user_name";
 
     //=====DescriptionFragment=====
-    String ITEM_ARG = "item argument";
+    String ITEM_ARG = "item_argument";
 
     //=====IntentExtra=====
-    String ITEM_EXTRA = "extra item";
+    String ITEM_EXTRA = "extra_item";
 
     //=====Logcat=====
     String TAG = "LOGCAT";

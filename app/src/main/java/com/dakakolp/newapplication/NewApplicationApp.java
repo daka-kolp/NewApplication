@@ -14,10 +14,10 @@ public class NewApplicationApp extends Application {
     public void onCreate() {
         super.onCreate();
         sNewApplicationApp = this;
-        managersInitialization();
+        initManagers();
     }
 
-    private void managersInitialization(){
+    private void initManagers(){
         mPrivatePreferencesManager =
                 new PrivateSharedPreferenceManager(this, ConstantManager.PRIVATE_INFO_PREFERENCE);
     }
